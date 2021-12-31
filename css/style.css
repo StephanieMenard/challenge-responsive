@@ -1,0 +1,71 @@
+.box {
+    height: 200px;
+}
+
+#etoile {
+    background-image: url("../images/etoile.jpeg");
+    border: 15px solid grey;
+}
+
+#nuage {
+    background-image: url("../images/nuage.jpeg");
+    border: 15px solid grey;
+}
+
+#sable {
+    background-image: url("../images/sable.jpeg");
+    border: 15px solid grey;
+}
+
+#eau {
+    background-image: url("../images/eau.jpeg");
+    border: 15px solid grey;
+}
+
+/* à partir de 600px de large ( screen != print ) */
+@media screen and (min-width: 600px) {
+    /* on applique ces styles si la condition est VRAIE */
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  
+    .box {
+      width: 50%;
+    }
+  
+    /* on met la box verte en premier */
+    #nuage {
+      order: -1;
+    }
+  }
+  
+  /* à partir de 900px de large */
+  @media screen and (min-width: 900px) {
+    /* les autres boîtes doivent se placer à côté les unes des autres */
+    .box {
+      width: calc(100% / 3);
+    }
+  
+    /* la boîte noire doit disparaître */
+    #etoile {
+      display: none;
+    }
+  }
+  
+  /* à partir de 1200px de large */
+  @media screen and (min-width: 1200px) {
+    /* la boîte noire doit apparaitre à nouveau */
+    #etoile {
+      display: initial; /* https://developer.mozilla.org/fr/docs/Web/CSS/initial_value */ 
+    }
+  
+    /* les 4 boîtes sont dorénavent toutes à côté les unes des autres */
+    .box {
+      width: 25%;
+    }
+  
+    #nuage {
+      order: initial;
+    }
+  }
